@@ -1,3 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+}
+
+/* Suaviza os scrolls */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Efeito de fade-in nas seções */
+section {
+  view-timeline-name: --section;
+  animation-timeline: --section;
+  animation-name: fadeIn;
+  animation-range: entry 25% cover 30%;
+  animation-fill-mode: both;
+}
+
 .App {
   text-align: center;
 }
