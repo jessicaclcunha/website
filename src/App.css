@@ -3,63 +3,103 @@
 @tailwind utilities;
 
 @layer utilities {
-  .animate-delay-100 {
-    animation-delay: 0.1s;
-  }
-  .animate-delay-200 {
-    animation-delay: 0.2s;
-  }
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
 }
 
-/* Suaviza os scrolls */
+/* ============================================
+   Sistema de tema — um único conjunto de tokens
+   que muda de valor consoante .dark esteja ou não
+   presente em <html>. Garante que claro/escuro têm
+   o MESMO desenho, só muda o contraste.
+   ============================================ */
+:root {
+  --bg-canvas: #F8F6F2;
+  --bg-surface: #FFFFFF;
+  --bg-surface-2: #F1EEE7;
+  --bg-inverse: #12131B;
+
+  --text-primary: #12131B;
+  --text-secondary: #3E4258;
+  --text-muted: #6B7086;
+
+  --border-subtle: rgba(18, 19, 27, 0.09);
+  --border-strong: rgba(18, 19, 27, 0.16);
+
+  --accent: #5F3ED0;
+  --accent-strong: #4C31A8;
+  --accent-soft: rgba(95, 62, 208, 0.08);
+  --accent-text: #5F3ED0;
+
+  --brass: #A87638;
+  --brass-soft: rgba(168, 118, 56, 0.12);
+
+  --shadow-color: 230 40% 30%;
+}
+
+.dark {
+  --bg-canvas: #0C0D12;
+  --bg-surface: #14151F;
+  --bg-surface-2: #191B27;
+  --bg-inverse: #F8F6F2;
+
+  --text-primary: #F5F4F8;
+  --text-secondary: #B7BAC9;
+  --text-muted: #7C8093;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --accent: #B9A4F5;
+  --accent-strong: #D9CDFB;
+  --accent-soft: rgba(185, 164, 245, 0.12);
+  --accent-text: #C6B6F8;
+
+  --brass: #E7C793;
+  --brass-soft: rgba(231, 199, 147, 0.12);
+
+  --shadow-color: 250 60% 3%;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Efeito de fade-in nas seções */
+body {
+  background-color: var(--bg-canvas);
+  transition: background-color 0.3s ease;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Entrada suave de cada secção ao aparecer no ecrã */
 section {
   view-timeline-name: --section;
   animation-timeline: --section;
   animation-name: fadeIn;
-  animation-range: entry 25% cover 30%;
+  animation-range: entry 15% cover 30%;
   animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.string-divider {
+  width: 100%;
+  height: 48px;
+  color: var(--border-strong);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.index-dot {
+  transition: all 0.3s ease;
 }

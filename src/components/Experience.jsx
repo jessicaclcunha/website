@@ -1,69 +1,86 @@
-import React from 'react';
-import { GraduationCap, User, Award } from 'lucide-react';
+import React from 'react'
+import { Briefcase, HeartPulse, Wallet, GraduationCap, HandHeart, Music } from 'lucide-react'
+
+const experiences = [
+  {
+    title: 'Software Engineer Intern',
+    company: 'MESTRECLIQUE — Sistemas de Informação, Lda.',
+    period: 'julho 2026 — presente',
+    description: 'Estágio em engenharia de software, a par com a fase final do mestrado.',
+    icon: <Briefcase size={18} />,
+    current: true,
+  },
+  {
+    title: 'PureProsper — Projeto pessoal',
+    company: 'Desenvolvimento a solo',
+    period: '2026',
+    description: 'App de finanças pessoais gamificada, com metas, streaks e apoio multi-moeda. Do design em Figma ao deploy em produção — pure-prosper.vercel.app.',
+    icon: <Wallet size={18} />,
+  },
+  {
+    title: 'F3MediCare — Projeto de Mestrado',
+    company: 'Em parceria com F3M',
+    period: '2025 — 2026 · concluído',
+    description: 'App React Native para gestão de medicação de doentes com demência, com duas interfaces (paciente e cuidador). Prototipagem em Figma, equipa de 5 pessoas.',
+    icon: <HeartPulse size={18} />,
+  },
+  {
+    title: 'Licenciatura em Engenharia Informática',
+    company: 'Universidade do Minho',
+    period: 'outubro 2021 — junho 2025',
+    description: 'Base sólida em engenharia de software, algoritmos e sistemas, com foco crescente em frontend.',
+    icon: <GraduationCap size={18} />,
+  },
+  {
+    title: 'Trabalho voluntário',
+    company: 'Banco Alimentar Contra a Fome',
+    period: 'presente',
+    description: 'Participação em campanhas de recolha de alimentos.',
+    icon: <HandHeart size={18} />,
+  },
+  {
+    title: 'Violino — 5º grau',
+    company: 'Academia de Música Fernandes Fão',
+    period: '2013 — 2018',
+    description: 'Ensino articulado. A consistência que a música exige acompanha-me hoje no código.',
+    icon: <Music size={18} />,
+  },
+]
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Estudante de Engenharia Informática",
-      company: "Universidade do Minho",
-      period: "2021 - 2025",
-      description: "Especialização em Computação Gráfica com adiantamento de disciplinas do mestrado.",
-      icon: <GraduationCap className="w-5 h-5" />
-    },
-    {
-      title: "Trabalho Voluntário",
-      company: "Banco Alimentar Contra a Fome",
-      period: "Presente",
-      description: "Participação em campanhas de recolha de alimentos.",
-      icon: <User className="w-5 h-5" />
-    },
-    {
-      title: "Formação Musical",
-      company: "Academia de Música Fernandes Fão",
-      period: "2013 - 2018",
-      description: "Conclusão do 5º grau de violino em ensino articulado.",
-      icon: <Award className="w-5 h-5" />
-    }
-  ];
-
   return (
-    <section id="experience" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Experiência</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            O meu percurso académico e pessoal.
-          </p>
-        </div>
+    <section id="experience" className="py-28" style={{ backgroundColor: 'var(--bg-canvas)' }}>
+      <div className="max-w-4xl mx-auto px-6">
+        <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--accent-text)' }}>02 · Percurso</span>
+        <h2 className="font-display font-semibold text-4xl mt-3 mb-16" style={{ color: 'var(--text-primary)' }}>
+          Experiência &amp; formação
+        </h2>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    {exp.icon}
-                  </div>
-                  <div>
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-900">{exp.title}</h3>
-                        <p className="text-gray-600 font-medium">{exp.company}</p>
-                      </div>
-                      <div className="text-sm text-gray-500 bg-gray-50 px-3 py-1 rounded-full mt-2 sm:mt-0">
-                        {exp.period}
-                      </div>
-                    </div>
-                    <p className="text-gray-600 leading-relaxed">{exp.description}</p>
-                  </div>
-                </div>
+        <div className="relative pl-8 border-l space-y-12" style={{ borderColor: 'var(--border-subtle)' }}>
+          {experiences.map((exp, index) => (
+            <div key={index} className="relative">
+              <span
+                className="absolute -left-[41px] top-0 w-8 h-8 rounded-full flex items-center justify-center border"
+                style={
+                  exp.current
+                    ? { backgroundColor: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
+                    : { backgroundColor: 'var(--bg-surface)', borderColor: 'var(--border-subtle)', color: 'var(--accent-text)' }
+                }
+              >
+                {exp.icon}
+              </span>
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                <h3 className="font-display font-semibold text-lg" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                <span className="font-mono text-xs uppercase tracking-wide" style={{ color: 'var(--brass)' }}>{exp.period}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-sm font-medium mt-0.5" style={{ color: 'var(--accent-text)' }}>{exp.company}</p>
+              <p className="text-sm mt-2 leading-relaxed max-w-xl" style={{ color: 'var(--text-secondary)' }}>{exp.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experience

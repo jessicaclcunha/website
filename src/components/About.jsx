@@ -1,72 +1,69 @@
-import React from 'react';
-import { Code, Award, User } from 'lucide-react';
+import React from 'react'
+import { Layers, Wallet, Music } from 'lucide-react'
+import StringDivider from './StringDivider'
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-8">Sobre mim</h2>
-            <div className="space-y-6 text-gray-600 leading-relaxed">
-              <p>
-                Como recém-licenciada em Engenharia Informática pela Universidade do 
-                Minho, especializei-me em Computação Gráfica através do adiantamento de 
-                disciplinas do mestrado.
-              </p>
-              <p>
-                Procuro dar continuidade ao meu percurso académico candidatando-me ao 
-                Mestrado em Engenharia Informática, enquanto procuro oportunidades para 
-                aplicar os meus conhecimentos em desenvolvimento front-end.
-              </p>
-              <p>
-                Para além da programação, tenho uma sólida formação em música (violino, 5º grau) 
-                e dedico tempo ao trabalho voluntário no Banco Alimentar Contra a Fome.
+    <>
+      <section id="about" className="py-28" style={{ backgroundColor: 'var(--bg-surface)' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-start">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--accent-text)' }}>01 · Sobre mim</span>
+              <h2 className="font-display font-semibold text-4xl mt-3 leading-tight" style={{ color: 'var(--text-primary)' }}>
+                Do wireframe ao<br />ecrã do utilizador
+              </h2>
+              <p className="mt-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                A ligação entre a precisão técnica da Computação Gráfica e a atenção ao
+                detalhe de quem passou cinco anos a afinar um violino define a forma como
+                trabalho: com disciplina, mas sempre a pensar em quem vai usar o que construo.
               </p>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 gap-6">
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <Code className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Desenvolvimento Frontend</h3>
-                  <p className="text-sm text-gray-600">Vue.js, React.js, JavaScript, TypeScript</p>
-                </div>
-              </div>
-            </div>
+            <div className="space-y-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              <p>
+                Estou a terminar o <strong style={{ color: 'var(--text-primary)' }}>Mestrado em Engenharia Informática</strong> na
+                Universidade do Minho, com especialização em <strong style={{ color: 'var(--text-primary)' }}>Computação Gráfica e
+                Engenharia de Linguagens</strong>, depois de uma Licenciatura na mesma área (2021–2025).
+                Atualmente sou <strong style={{ color: 'var(--text-primary)' }}>Software Engineer Intern na MESTRECLIQUE</strong>.
+              </p>
+              <p>
+                Gosto de levar projetos até ao fim. No mestrado, desenvolvi o{' '}
+                <strong style={{ color: 'var(--text-primary)' }}>F3MediCare</strong> em parceria com a F3M — uma app de
+                gestão de medicação para doentes com demência. Mais recentemente, criei sozinha o{' '}
+                <strong style={{ color: 'var(--text-primary)' }}>PureProsper</strong>, uma aplicação de finanças pessoais
+                gamificada, do design em Figma ao deploy em produção.
+              </p>
+              <p>
+                Tenho um gosto particular por frontend — a parte da aplicação que o utilizador vê e sente — e já
+                trabalhei com React, React Native, Vue.js e TypeScript. Aprendo tecnologias novas rapidamente por
+                iniciativa própria, e trago essa mesma vontade de aprender para qualquer equipa.
+              </p>
 
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
+              <div className="grid sm:grid-cols-3 gap-4 pt-4">
+                <div className="p-5 rounded-2xl border" style={{ borderColor: 'var(--border-subtle)', backgroundColor: 'var(--bg-surface-2)' }}>
+                  <Layers style={{ color: 'var(--accent-text)' }} className="mb-3" size={20} />
+                  <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>Computação Gráfica</p>
+                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Especialização de mestrado</p>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Computação Gráfica</h3>
-                  <p className="text-sm text-gray-600">Especialização em disciplinas de mestrado</p>
+                <div className="p-5 rounded-2xl border" style={{ borderColor: 'var(--border-subtle)', backgroundColor: 'var(--bg-surface-2)' }}>
+                  <Wallet style={{ color: 'var(--accent-text)' }} className="mb-3" size={20} />
+                  <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>PureProsper</p>
+                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Projeto pessoal, ponta a ponta</p>
                 </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center">
-                  <User className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Competências Pessoais</h3>
-                  <p className="text-sm text-gray-600">Música (violino) • Trabalho voluntário</p>
+                <div className="p-5 rounded-2xl border" style={{ borderColor: 'var(--border-subtle)', backgroundColor: 'var(--bg-surface-2)' }}>
+                  <Music style={{ color: 'var(--accent-text)' }} className="mb-3" size={20} />
+                  <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>5 anos de violino</p>
+                  <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Disciplina e consistência</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+      <div style={{ backgroundColor: 'var(--bg-surface)' }}><StringDivider /></div>
+    </>
+  )
+}
 
-export default About;
+export default About

@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from './components/Header'
+import IndexRail from './components/IndexRail'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
@@ -10,8 +11,9 @@ import Contact from './components/Contact'
 
 const App = () => {
   return (
-    <div className="font-sans antialiased text-gray-900 overflow-x-hidden">
+    <div className="font-sans antialiased overflow-x-hidden">
       <Header />
+      <IndexRail />
       <Hero />
       <About />
       <Experience />
