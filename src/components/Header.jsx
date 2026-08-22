@@ -54,7 +54,7 @@ const Header = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="font-mono text-xs uppercase tracking-widest transition-colors hover:opacity-70"
+                className="nav-link font-mono text-xs uppercase tracking-widest transition-colors hover:opacity-70"
                 style={{ color: 'var(--text-secondary)' }}
               >
                 {item.label}
@@ -63,7 +63,7 @@ const Header = () => {
 
             <button
               onClick={toggleTheme}
-              className="w-9 h-9 rounded-full flex items-center justify-center border transition-colors hover:opacity-80"
+              className="w-9 h-9 rounded-full flex items-center justify-center border transition-all hover:opacity-80 hover:rotate-12"
               style={{ borderColor: 'var(--border-subtle)', color: 'var(--text-secondary)' }}
               aria-label={theme === 'dark' ? 'Ativar modo claro' : 'Ativar modo escuro'}
             >
@@ -74,7 +74,7 @@ const Header = () => {
               href="https://github.com/jessicaclcunha"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:opacity-70"
+              className="transition-colors hover:opacity-70 hover:-translate-y-0.5 inline-block"
               style={{ color: 'var(--text-secondary)' }}
               aria-label="GitHub de Jéssica Cunha"
             >
@@ -82,7 +82,7 @@ const Header = () => {
             </a>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-white text-sm font-medium px-5 py-2.5 rounded-full transition-opacity hover:opacity-90"
+              className="text-white text-sm font-medium px-5 py-2.5 rounded-full transition-transform hover:scale-105"
               style={{ backgroundColor: 'var(--accent)' }}
             >
               Contactar

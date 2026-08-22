@@ -1,28 +1,15 @@
 import React from 'react'
-import { Briefcase, HeartPulse, Wallet, GraduationCap, HandHeart, Music } from 'lucide-react'
+import { Briefcase, GraduationCap, HandHeart, Music } from 'lucide-react'
+import Reveal from './Reveal'
 
 const experiences = [
   {
-    title: 'Software Engineer Intern',
+    title: 'Estagiária de Verão',
     company: 'MESTRECLIQUE — Sistemas de Informação, Lda.',
-    period: 'julho 2026 — presente',
-    description: 'Estágio em engenharia de software, a par com a fase final do mestrado.',
+    period: 'junho — agostp 2026',
+    description: 'Estágio de verão em engenharia de software, em paralelo com a fase final do mestrado.',
     icon: <Briefcase size={18} />,
     current: true,
-  },
-  {
-    title: 'PureProsper — Projeto pessoal',
-    company: 'Desenvolvimento a solo',
-    period: '2026',
-    description: 'App de finanças pessoais gamificada, com metas, streaks e apoio multi-moeda. Do design em Figma ao deploy em produção — pure-prosper.vercel.app.',
-    icon: <Wallet size={18} />,
-  },
-  {
-    title: 'F3MediCare — Projeto de Mestrado',
-    company: 'Em parceria com F3M',
-    period: '2025 — 2026 · concluído',
-    description: 'App React Native para gestão de medicação de doentes com demência, com duas interfaces (paciente e cuidador). Prototipagem em Figma, equipa de 5 pessoas.',
-    icon: <HeartPulse size={18} />,
   },
   {
     title: 'Licenciatura em Engenharia Informática',
@@ -49,33 +36,37 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-28" style={{ backgroundColor: 'var(--bg-canvas)' }}>
+    <section id="experience" className="py-28" style={{ backgroundColor: 'var(--bg-surface)' }}>
       <div className="max-w-4xl mx-auto px-6">
-        <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--accent-text)' }}>02 · Percurso</span>
-        <h2 className="font-display font-semibold text-4xl mt-3 mb-16" style={{ color: 'var(--text-primary)' }}>
-          Experiência &amp; formação
-        </h2>
+        <Reveal>
+          <span className="font-mono text-xs uppercase tracking-widest" style={{ color: 'var(--accent-text)' }}>02 · Percurso</span>
+          <h2 className="font-display font-semibold text-4xl mt-3 mb-16" style={{ color: 'var(--text-primary)' }}>
+            Experiência &amp; formação
+          </h2>
+        </Reveal>
 
         <div className="relative pl-8 border-l space-y-12" style={{ borderColor: 'var(--border-subtle)' }}>
           {experiences.map((exp, index) => (
-            <div key={index} className="relative">
-              <span
-                className="absolute -left-[41px] top-0 w-8 h-8 rounded-full flex items-center justify-center border"
-                style={
-                  exp.current
-                    ? { backgroundColor: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
-                    : { backgroundColor: 'var(--bg-surface)', borderColor: 'var(--border-subtle)', color: 'var(--accent-text)' }
-                }
-              >
-                {exp.icon}
-              </span>
-              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                <h3 className="font-display font-semibold text-lg" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
-                <span className="font-mono text-xs uppercase tracking-wide" style={{ color: 'var(--brass)' }}>{exp.period}</span>
+            <Reveal key={index} delay={index * 90} direction="left">
+              <div className="relative">
+                <span
+                  className="absolute -left-[41px] top-0 w-8 h-8 rounded-full flex items-center justify-center border transition-transform hover:scale-110"
+                  style={
+                    exp.current
+                      ? { backgroundColor: 'var(--accent)', borderColor: 'var(--accent)', color: '#fff' }
+                      : { backgroundColor: 'var(--bg-surface-2)', borderColor: 'var(--border-subtle)', color: 'var(--accent-text)' }
+                  }
+                >
+                  {exp.icon}
+                </span>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 className="font-display font-semibold text-lg" style={{ color: 'var(--text-primary)' }}>{exp.title}</h3>
+                  <span className="font-mono text-xs uppercase tracking-wide" style={{ color: 'var(--brass)' }}>{exp.period}</span>
+                </div>
+                <p className="text-sm font-medium mt-0.5" style={{ color: 'var(--accent-text)' }}>{exp.company}</p>
+                <p className="text-sm mt-2 leading-relaxed max-w-xl" style={{ color: 'var(--text-secondary)' }}>{exp.description}</p>
               </div>
-              <p className="text-sm font-medium mt-0.5" style={{ color: 'var(--accent-text)' }}>{exp.company}</p>
-              <p className="text-sm mt-2 leading-relaxed max-w-xl" style={{ color: 'var(--text-secondary)' }}>{exp.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
